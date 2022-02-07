@@ -254,5 +254,5 @@ function getMethods(obj) {
   return res
 }
 
-module.exports = dlog
+global.dlog = dlog
 
