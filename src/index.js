@@ -105,10 +105,11 @@ function finalPrint(obj, variableName, typeStringValue, stack) {
   // let func                  = stack.getFunction()
   let functionName = stack.getFunctionName()
   let lineNumber   = stack.getLineNumber()
+  //////////////////////////////////////////////////////
   // let methodName            = stack.getMethodName()
   // let position              = stack.getPosition()
   // let promiseIndex          = stack.getPromiseIndex()
-  // let scriptNameOrSourceURL = stack.getScriptNameOrSourceURL()
+  let scriptNameOrSourceURL = stack.getScriptNameOrSourceURL()
   // let this1                 = stack.getThis()
   // let typeName              = stack.getTypeName()
   // console.log(columnNumber)
@@ -125,13 +126,12 @@ function finalPrint(obj, variableName, typeStringValue, stack) {
   // console.log(typeName)
   // console.log('■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■')
 
-  let rootPath = process.cwd()
+  // let fileInfo = fileName + ':' + lineNumber + ':' + columnNumber
+  let fileInfo = scriptNameOrSourceURL + ':' + lineNumber + ':' + columnNumber
 
-  let fileInfo = rootPath + '/' + fileName + ':' + lineNumber + ':' + columnNumber
-
-  if (!fileName) {
-    fileInfo = stack.toString()
-  }
+  // if (!fileName) {
+  //   fileInfo = stack.toString()
+  // }
 
   if (!functionName) {
     functionName = '<anonymous>'
